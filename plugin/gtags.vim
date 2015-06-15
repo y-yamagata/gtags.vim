@@ -264,6 +264,17 @@ function! s:Stack()
         return l:item
     endfunction
 
+    function! l:this.copy()
+        l:dest = s:Stack()
+        if len(self.container) <= 0
+            return l:dest
+        endif
+
+        l:dest.container = copy(self.container)
+
+        return l:dest
+    endfunction
+
     return l:this
 endfunction
 
